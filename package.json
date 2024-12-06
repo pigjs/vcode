@@ -1,0 +1,69 @@
+{
+  "name": "vcode",
+  "displayName": "vcode 代码命名工具",
+  "description": "智能生成符合命名规范的代码名称，提升代码可读性，让命名更加高效、自然",
+  "version": "1.0.0",
+  "publisher": "MrYeXiaoqiu",
+  "author": {
+    "name": "MrYeXiaoqiu"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/pigjs/vcode/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/pigjs/vcode/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pigjs/vcode.git"
+	},
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+  "categories": [
+    "Other"
+  ],
+  "icon": "images/logo.png",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.chineseToVariable",
+        "title": "convert chinese to variable"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.chineseToVariable",
+        "key": "ctrl+1",
+        "mac": "cmd+1",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
